@@ -1,0 +1,538 @@
+/* SmartDIP - Enhanced Styles */
+
+/* General Styles */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --border-radius: 0.375rem;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 60px; /* Space for footer */
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+.dark-mode .card-header {
+    background-color: #2c2c2c;
+    border-color: #333;
+}
+
+.dark-mode .bg-light {
+    background-color: #2c2c2c !important;
+}
+
+.dark-mode .text-muted {
+    color: #adb5bd !important;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: #333;
+    border-color: #444;
+    color: #f1f1f1;
+}
+
+.dark-mode .modal-content {
+    background-color: #2c2c2c;
+    color: #f1f1f1;
+}
+
+.dark-mode .list-group-item {
+    background-color: #2c2c2c;
+    border-color: #444;
+    color: #f1f1f1;
+}
+
+/* Header Styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Card Styling */
+.card {
+    box-shadow: var(--box-shadow);
+    border: none;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    border-bottom: none;
+    font-weight: 500;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+/* Unit navigation styling */
+.unit-nav {
+    border-radius: var(--border-radius);
+    padding: 5px;
+    background-color: var(--light-color);
+}
+
+.dark-mode .unit-nav {
+    background-color: #2c2c2c;
+}
+
+.unit-nav .nav-link {
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.unit-nav .nav-link:not(.active):hover {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Image container styles */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    transition: background-color var(--transition-speed);
+}
+
+.dark-mode .img-container {
+    background-color: #2c2c2c;
+}
+
+.img-container img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* Operation queue styling */
+#operation-queue {
+    min-height: 50px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    transition: background-color var(--transition-speed);
+}
+
+.dark-mode #operation-queue {
+    background-color: #2c2c2c;
+}
+
+.queue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e9ecef;
+    border-radius: var(--border-radius);
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    transition: background-color var(--transition-speed);
+}
+
+.dark-mode .queue-item {
+    background-color: #3c3c3c;
+}
+
+.queue-item:last-child {
+    margin-bottom: 0;
+}
+
+.queue-item-remove {
+    cursor: pointer;
+    color: var(--danger-color);
+    transition: color var(--transition-speed);
+}
+
+.queue-item-remove:hover {
+    color: #b02a37;
+}
+
+/* Results styling */
+.result-card {
+    height: 100%;
+    transition: transform var(--transition-speed);
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+}
+
+.result-image {
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+}
+
+.result-description {
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Parameter inputs */
+.parameter-input {
+    margin-bottom: 10px;
+}
+
+/* Loading indicator */
+.loading-spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+.dark-mode .loading-spinner {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--primary-color);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Image comparison slider */
+.image-comparison-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image-comparison-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.image-comparison-before,
+.image-comparison-after {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-comparison-before {
+    z-index: 1;
+    background-color: var(--light-color);
+}
+
+.dark-mode .image-comparison-before {
+    background-color: #2c2c2c;
+}
+
+.image-comparison-after {
+    z-index: 2;
+    width: 50%;
+    border-right: 3px solid white;
+    background-color: var(--light-color);
+}
+
+.dark-mode .image-comparison-after {
+    background-color: #2c2c2c;
+    border-right: 3px solid #333;
+}
+
+.image-comparison-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: ew-resize;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .image-comparison-handle {
+    background-color: #3c3c3c;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.handle-icon {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Sample images grid */
+.sample-image-item {
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.sample-image-item:hover {
+    transform: scale(1.05);
+}
+
+/* Educational content styling */
+#educational-content {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#educational-content h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#educational-content ul {
+    padding-left: 1.5rem;
+}
+
+#educational-content code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+.dark-mode #educational-content code {
+    background-color: #2c2c2c;
+}
+
+.math-equation {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+.dark-mode .math-equation {
+    background-color: #2c2c2c;
+}
+
+/* Mobile responsive tweaks */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .img-container {
+        max-height: 300px;
+    }
+    
+    .img-container img,
+    .result-image,
+    .comparison-image {
+        max-height: 250px;
+    }
+    
+    .unit-nav .nav-link {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Custom scrollbar for descriptions */
+.result-description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.result-description::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dark-mode .result-description::-webkit-scrollbar-track {
+    background: #3c3c3c;
+}
+
+.result-description::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.result-description::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Tutorial page specific styles */
+.tutorial-step {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: background-color var(--transition-speed);
+}
+
+.dark-mode .tutorial-step {
+    background-color: #2c2c2c;
+}
+
+.tutorial-step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.step-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.tutorial-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    box-shadow: var(--box-shadow);
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* New in CSS 2: histogram and stat elements styling */
+#image-histogram {
+    width: 100%;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.dark-mode #image-histogram {
+    background-color: #2c2c2c;
+}
+
+.histogram-bar {
+    height: 100%;
+    width: 1px;
+    background-color: var(--primary-color);
+    display: inline-block;
+    margin-right: 1px;
+}
+
+.dark-mode .histogram-bar {
+    background-color: var(--info-color);
+}
+
+.stat-box {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+}
+
+.dark-mode .stat-box {
+    background-color: #2c2c2c;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: normal;
+    display: block;
+    color: var(--secondary-color);
+}
+
+/* Mathematical background display */
+#mathematical-background {
+    font-size: 0.9rem;
+}
+
+.math-formula {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+}
+
+.dark-mode .math-formula {
+    background-color: #2c2c2c;
+}
+
+.formula-explanation {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: var(--secondary-color);
+}
+
+/* Related concepts styling */
+#related-concepts .list-group-item {
+    transition: background-color var(--transition-speed);
+    cursor: pointer;
+}
+
+#related-concepts .list-group-item:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.dark-mode #related-concepts .list-group-item:hover {
+    background-color: #3c3c3c;
+}
